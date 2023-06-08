@@ -25,6 +25,60 @@ const fetchCoins = async (params : IFetchCoinParams) => {
      }
 }
 
+const fetchCoin = async (id : string) => {
+  const options = {
+    method: 'GET',
+    url: `https://coinranking1.p.rapidapi.com/coin/${id}`,
+    params: {
+      timePeriod: '24h'
+    },
+    headers: {
+      'X-RapidAPI-Key': '5a6bb2bb58msh8f64f98f0142d85p1c88cbjsn82920957c6ba',
+      'X-RapidAPI-Host': 'coinranking1.p.rapidapi.com'
+    }
+  };
+
+  try {
+
+    const { data } = await axios.request(options);
+
+
+    if(data) {
+       return data.data.coin;
+    }
+
+  } catch (err) {
+    return err;
+  }
+}
+
+const fetchCoinHistory = async (id : string,period : string = "24h") => {
+  const options = {
+    method: 'GET',
+    url: `https://coinranking1.p.rapidapi.com/coin/${id}/history`,
+    params: {timePeriod: period},
+    headers: {
+      'X-RapidAPI-Key': '5a6bb2bb58msh8f64f98f0142d85p1c88cbjsn82920957c6ba',
+      'X-RapidAPI-Host': 'coinranking1.p.rapidapi.com'
+    }
+  };
+
+  try {
+
+    const { data } = await axios.request(options);
+
+    if(data) {
+      return data.data.history;
+    }
+
+  } catch(err) {
+     return err;   
+  }
+  
+}
+
 export {
-    fetchCoins
+    fetchCoins,
+    fetchCoin,
+    fetchCoinHistory
 }

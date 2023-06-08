@@ -1,0 +1,30 @@
+.main {
+    padding:0 1rem 2rem;
+}
+.crypto-section-container {
+    margin-top:1.6rem;
+}
+
+.crypto-currencies-items {
+    margin-top:1.2rem;
+}
+
+.crypto-section-header {
+   display:flex;
+   justify-content:space-between;
+   align-items:center;
+}
+
+.crypto-section-header .section-title {
+    line-height:0;
+}
+
+.crypto-section-header .select-box {
+    width:250px;
+}
+
+@media (width <= 576px) {
+    .crypto-section-header .select-box {
+         display:none;
+    }
+}

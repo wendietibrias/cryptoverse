@@ -1,13 +1,16 @@
 import "../assets/styles/css/Homepage.css";
 import { useEffect,useState } from "react";
 import { fetchCoins } from "../api/fetchCoins";
+import { CryptoCard,NewsCard,Loading } from "../components";
 import { fetchNews } from "../api/fetchNews";
 import millify from "millify";
 import { ICoinsResponse,INewsResponse,IStatsResponse } from "../interfaces/ResponseApiInterfaces";
 import moment from "moment";
+import { Link } from "react-router-dom";
 
 const Homepage = () => {
     
+    const [loadData,setLoadData] = useState<boolean>(false);
     const [stats,setStats] = useState<IStatsResponse | null>(null);
     const [coins,setCoins] = useState<ICoinsResponse[] | null>(null);
     const [news,setNews] = useState<INewsResponse[] | null>(null);
@@ -34,13 +37,24 @@ const Homepage = () => {
 
         if(response) {
             setNews(response);
+            setLoadData(false);
         }
     }
 
     useEffect(() => {
+        document.title = "Cryptoverse | Homepage"
+        
+        setLoadData(true);
         fetchTenCoin();
         fetchSixNews();
+
     }, []);
+
+    if(loadData) {
+        return (
+            <Loading width={40} height={40} />
+        )
+    }
 
     return (
         <main className="main">
@@ -81,45 +95,18 @@ const Homepage = () => {
             </div>
             <div className="crypto-section-container"> 
              <h2 className="section-title">Top 10 Cryptocurrencies</h2>
-             <div className="crypto-currencies-items grid grid-cols-4">
+             <div className="crypto-currencies-items grid grid-cols-4 grid-cols-sm-1">
                  {coins && Array.isArray(coins) && coins.map((coin : ICoinsResponse,idx : number) => (
-                    <div className="crypto-currencies-item" key={idx}>
-                        <div className="currencies-item-header flex align-items-center justify-between">
-                            <h5>{idx + 1}.{coin?.name}</h5>
-                            <img src={coin?.iconUrl} alt={coin?.name}/>
-                        </div>
-                        <div className="currencies-specific-info flex flex-dir-col">
-                            <p>Price : {millify(Number(coin?.price))}</p>
-                            <p>Market Cap : {millify(Number(coin?.marketCap))}</p>
-                            <p>Daily Change : {millify(Number(coin?.change))}</p>
-                        </div>
-                    </div>
+                     <Link to={`/crypto/${coin.uuid}`}>
+                       <CryptoCard coin={coin} idx={idx} />
+                     </Link>
                  ))}
              </div>
             </div>
             <div className="news-section-container">
                 <h2 className="section-title">Latest Crypto News</h2>
-                <div className="news-items grid grid-cols-3">
-                    {news && Array.isArray(news) && news.map((news : INewsResponse, idx : number) => (
-                        <div className="news-item flex flex-dir-col align-items-start" key={idx}>
-                           <div className="news-item-title flex align-items-stretch">
-                           <h5>{news.name}</h5>
-                            <img alt={news.name} src={news?.image?.thumbnail?.contentUrl}/>
-                           </div>
-                           <p>
-                            {
-                                news.description.length > 60 ? news.description.substring(0,70) : news.description
-                            }
-                           </p>
-                           <div className="news-item-info-detail flex align-items-center justify-between">
-                            <div className="info-detail-provider flex align-items-center">
-                                <img src={news?.provider[0].image?.thumbnail?.contentUrl} alt={news.provider[0].name}/>
-                                <span>{news?.provider[0].name}</span>
-                            </div>
-                            <h5>{moment(news.datePublished).fromNow()}</h5>
-                           </div>
-                        </div>
-                    ))}
+                <div className="news-items grid grid-cols-3 grid-cols-sm-1">
+                    {news && Array.isArray(news) && news.map((news : INewsResponse, idx : number) => <NewsCard news={news} idx={idx} />)}
                 </div>
             </div>
         </main>

@@ -7,7 +7,7 @@ const Sidebar = () => {
 
     return (
         <aside className="sidebar">
-             <header className="sidebar__header flex align-items-center justify-start">
+             <header className="sidebar__header flex align-items-center justify-start justify-sm-center">
                 <img src={logo} alt="logo" className="logo"/>
                 <h5>Cryptoverse</h5>
              </header>
@@ -16,10 +16,10 @@ const Sidebar = () => {
                     <HomeOutlined className="icon-navigation"/>
                     <span>Home</span>
                 </Link>
-                <Link to="/exchanges" className={`link-navigation__item flex align-items-center ${pathname === '/exchanges' ? 'active' : ''}`}>
+                {/* <Link to="/exchanges" className={`link-navigation__item flex align-items-center ${pathname === '/exchanges' ? 'active' : ''}`}>
                     <DollarOutlined className="icon-navigation"/>
                     <span>Exchanges</span>
-                </Link>
+                </Link> */}
                 <Link to="/cryptocurrencies" className={`link-navigation__item flex align-items-center ${pathname === '/cryptocurrencies' ? 'active' : ''}`}>
                     <LineChartOutlined className="icon-navigation"/>
                     <span>Cryptocurrencies</span>

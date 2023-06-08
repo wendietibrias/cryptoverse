@@ -1,0 +1,184 @@
+
+.crypto-section-detail {
+    padding:1.5rem 1rem;
+}
+
+.crypto-detail-header {
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+    border-bottom:solid 1px #d5d3d3;
+    padding-bottom:1.5rem;
+
+}
+
+.crypto-detail-header h3 {
+    font-size:1.46rem;
+    font-weight:800;
+    color:var(--pink);
+}
+
+.crypto-detail-header h3 span {
+    text-transform:lowercase;
+}
+
+.crypto-detail-header p {
+    font-size:0.9rem;
+    margin-top:1rem;
+    color:#a7a7a7;
+}
+
+.chart-detail-section {
+    margin-top:1.5rem;
+}
+
+.chart-detail-section .select-box {
+    width:250px;
+}
+
+.chart-detail-section .title-section {
+    width:100%;
+    margin-top:1rem;
+}
+
+.title-section h3 {
+    color:var(--pink);
+    font-weight:700;
+}
+
+.title-section .sub-title  {
+    column-gap:0.8rem;
+}
+
+.sub-title h5 {
+    font-weight:700;
+}
+
+.stats-info-header h3{
+  color:var(--pink);
+  font-weight:700;
+  font-size:1.3rem;
+}
+
+.stats-info-header p {
+    font-size:0.88rem;
+    margin-top:0.4rem;
+    color:#a7a7a7;
+}
+
+.crypto-stats-info {
+    width:100%;
+    margin-top:2rem;
+    column-gap:2rem;
+}
+
+.crypto-stats-info .stats-info-left {
+    width:50%;
+}
+
+.crypto-stats-info .stats-info-right {
+    width:50%;
+}
+
+.stats-data {
+    margin-top:1rem;
+    row-gap:1rem;
+}
+
+.stats-data-item {
+    border-bottom:solid 1px #d5d3d3;
+    padding-bottom:0.5rem;
+}
+
+.stats-data-item h5{
+  font-size:0.92rem;
+  font-weight:700;
+  color:var(--pink);
+}
+
+.stats-data-item p {
+    font-size:0.90rem;
+    color:#8e8e8e;
+    column-gap:0.6rem;
+}
+
+@media (width <= 576px) {
+    .crypto-detail-header {
+        justify-content:center;
+        text-align:center;
+    }
+
+    .chart-detail-section {
+
+    }
+
+    .chart-detail-section .select-box {
+        width:100%;
+    }
+
+    .title-section {
+        flex-direction: column;
+    }
+
+    .title-section .sub-title {
+        margin-top:0.35rem;
+    }
+
+    .chart {
+        margin-top:2rem;
+        height:30vh;
+    }
+
+    .crypto-stats-info {
+        flex-direction: column;
+        row-gap:1rem;
+    }
+
+    .crypto-stats-info .stats-info-left,
+    .crypto-stats-info .stats-info-right {
+        width:100%;
+    }
+
+    .crypto-stats-info .stats-info-left h3,
+    .crypto-stats-info .stats-info-right h3 {
+        font-size:1rem;
+    }
+
+    
+    .crypto-stats-info .stats-info-left p,
+    .crypto-stats-info .stats-info-right p  {
+        font-size:0.75rem;
+    }
+} 
+
+@media (width <= 420px) {
+    .crypto-detail-header p {
+        font-size:0.75rem;
+        margin-top:0.5rem;
+    }
+  
+    .crypto-detail-header h3 {
+        font-size:1.1rem;
+    }
+
+    .crypto-section-detail {
+        padding:1.5rem 0 !important;
+    }
+
+    .title-section h3 {
+        font-size:1.15rem;
+    }
+
+    .title-section .sub-title {
+        flex-direction: column;
+    }
+
+    .stats-data-item p {
+        font-size:0.75rem;
+        column-gap:0.4rem;
+    }
+
+    .stats-data-item h5 {
+        font-size:0.75rem;
+    }
+}

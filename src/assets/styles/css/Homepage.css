@@ -1,6 +1,10 @@
 .main {
     width:100%;
-    padding:1.5rem 1rem 2rem;
+    padding:0 1rem 2rem;
+}
+
+.crypto-stats-container {
+    padding:1.5rem 0 0;
 }
 
 .crypto-stats-content {
@@ -39,6 +43,7 @@
     background-color:#fff;    
     box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
     border-radius:4px;
+    color:#000 !important;
 }
 
 .currencies-item-header {
@@ -48,7 +53,7 @@
 
 .currencies-item-header h5 {
     font-weight:600;
-    font-size:0.85rem;
+    font-size:0.8rem;
 }
 
 .currencies-item-header img {
@@ -129,4 +134,17 @@
 
 .info-detail-provider span {
     font-size:0.75rem;
+}
+
+@media (width <= 576px) {
+    .crypto-stats-content .crypto-stats-item h5 {
+        font-size:0.75rem;
+    }
+    .crypto-stats-content .crypto-stats-item h4 {
+         font-size:1rem;
+    }
+
+    .crypto-section-container {
+        width:100%;
+    }
 }

@@ -57,3 +57,8 @@ export interface INewsResponse {
     ];
     datePublished:string;
 }
+
+export interface ICoinHistoryResponse {
+    timestamp:string[];
+    price:string[];
+}

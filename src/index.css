@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap');
 @import "./assets/styles/variabels/colors.css";
 @import "./assets/styles/general/general.css";
 
@@ -21,7 +21,11 @@
 
 a {
   text-decoration:none;
-  color:#fff;
+}
+
+img[alt] {
+  font-size:0.75rem;
+  color:var(--pink);
 }
 
 /* title component style */
@@ -60,13 +64,14 @@ a {
 
 .sidebar .sidebar__link-navigation {
    color:#fff;
-   padding-right:1.2rem;
+   padding-right:2rem;
    margin-top:1rem;
 }
 
 .sidebar__link-navigation .link-navigation__item {
    column-gap:0.8rem;
    padding:1rem 0 1rem 1.2rem;
+   color:#fff;
 }
 
 .sidebar__link-navigation .link-navigation__item.active {
@@ -84,8 +89,27 @@ a {
 
 .content {
   width:83vw;
-  height:100vh; 
+  height:100vh;
   overflow-y:scroll;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+}
+
+.loading-container {
+   display:flex;
+   justify-content:center;
+   flex-direction: column;
+   align-items:center;
+   flex:1;
+}
+
+.loading-container h5 {
+  text-align:center;
+  color:var(--pink);
+  font-size:0.9rem;
+  font-weight:500;
+  margin-top:0.6rem;
 }
 
 footer {
@@ -104,4 +128,72 @@ footer h5 {
 footer h5 span {
   font-weight:600;
   color:var(--pink);
+}
+
+
+@media (width <= 576px) {
+  .App {
+    width:100%;
+  }
+
+  .section-title {
+    font-size:1rem;
+  }
+
+   .sidebar {
+     width:12vw;
+   }
+
+   .content {
+    width:88vw;
+   }
+
+  .sidebar .sidebar__header {
+    padding:1rem 0;
+   }
+
+   .sidebar .sidebar__header .logo {
+    width:30px ;
+    height:30px;
+   }
+
+   .sidebar__header h5 {
+    display:none;
+   }
+
+   .sidebar .sidebar__link-navigation {
+     padding-right:0;
+   }
+
+   .sidebar .link-navigation__item {
+    padding:1rem 0;
+    justify-content:center;
+   }
+
+   .sidebar .link-navigation__item .icon-navigation {
+    display:block !important;
+    font-size:1.1rem;
+   }
+
+   .sidebar .link-navigation__item span {
+      display:none;
+   }
+}
+
+@media (width <= 400px) {
+  .sidebar {
+    width:12vw;
+  }
+
+  .content {
+    width:88vw;
+  }
+
+  .crypto-stats-container .crypto-stats-content {
+    row-gap:0.8rem;
+  }
+  
+  .crypto-stats-content .crypto-stats-item {
+    width:100%;
+  }
 }
