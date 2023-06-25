@@ -21,10 +21,6 @@ const Chart = ({ histories } : IChartProps) => {
   
     return <Line 
        data={data}
-       options={{
-        responsive:true,
-        maintainAspectRatio:false
-       }}
     />
 }
 

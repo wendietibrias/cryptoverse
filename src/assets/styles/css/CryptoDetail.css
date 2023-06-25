@@ -32,6 +32,10 @@
     margin-top:1.5rem;
 }
 
+.chart {
+    height:75vh;
+}
+
 .chart-detail-section .select-box {
     width:250px;
 }
@@ -108,9 +112,14 @@
         text-align:center;
     }
 
-    .chart-detail-section {
-
+    .chart {
+        display:none;
     }
+    
+    .chart-detail-section .select-box {
+        display:none;
+    }
+
 
     .chart-detail-section .select-box {
         width:100%;
@@ -124,10 +133,7 @@
         margin-top:0.35rem;
     }
 
-    .chart {
-        margin-top:2rem;
-        height:30vh;
-    }
+ 
 
     .crypto-stats-info {
         flex-direction: column;
